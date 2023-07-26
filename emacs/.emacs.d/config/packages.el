@@ -35,6 +35,7 @@
 
 ;; code completion
 (use-package company)
+(use-package slime-company)
 
 ;; easy pane and window navigation
 (use-package windmove)
