@@ -25,10 +25,15 @@
 ;; Prevent adding `custom-set-variables` and `custom-set-faces` to `init.el`
 (setq custom-buffer-done-kill t)
 
-;; Add GitGutter like functionality
-(global-diff-hl-mode)
-
 ;; Make sure we store autosaves and backups in their own dir so they don't taint repos
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 (setq auto-save-file-name-transforms `((".*" "~/.emacs.d/auto-saves/" t)))
 
+;; support multiple .env filenames
+(add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode))
+
+;; Allow for faster movement
+(global-set-key (kbd "C-n")
+    (lambda () (interactive) (forward-line  5)))
+(global-set-key (kbd "C-p")
+    (lambda () (interactive) (forward-line -5)))
