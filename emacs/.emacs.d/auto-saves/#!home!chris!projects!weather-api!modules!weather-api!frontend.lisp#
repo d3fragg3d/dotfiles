@@ -1,0 +1,60 @@
+(in-package #:weather-api)
+
+(define-api weather/snapshot () ()
+  (let ((data (alexandria:read-stream-content-into-string (body-stream *request*)))
+	    (persisted-snapshots (make-array 0 :adjustable t :fill-pointer 0)))
+    (let ((snapshots (shasht:read-json data)))
+      (loop
+	    for snap across snapshots
+	    do (progn
+	         (let* ((dashboard (first (db:select 'dashboards (db:query (:= 'name (gethash "origin" snap))) :amount 1)))
+		            (wind-id (persist-wind snap dashboard))
+		            (temp-id (persist-temp snap dashboard))
+		            (other-id (persist-other snap dashboard)))
+	           (vector-push-extend wind-id persisted-snapshots)
+	           (vector-push-extend temp-id persisted-snapshots)
+	           (vector-push-extend other-id persisted-snapshots)))))
+    (api-output `(("persisted" . (,persisted-snapshots))))))
+
+(define-api weather/temp () ()
+  (let ((snapshots (dm:get 'temperature (db:query :all)
+			               :sort '((_id :DESC))
+			               :amount 96)))
+    (api-output `(,snapshots))))
+
+(define-api weather/other () ()
+  (let ((snapshots (dm:get 'other (db:query :all) 
+			               :sort '((_id :DESC))
+			               :amount 96)))
+    (api-output `(,snapshots))))
+
+12313123123123
+
+(define-api weather/wind () ()
+  (let ((snapshots (dm:get 'wind (db:query :all)
+			               :sort '((_id :DESC))
+			               :amount 96)))
+    (api-output `(,snapshots))))
+
+(define-api weather/user/valid (email) ()
+  (let ((emails (dm:get 'users (db:query (:= 'email email))))
+        (valid nil))
+    (if emails
+        (setf valid T))
+    (api-output valid)))
+
+
+(define-api weather/user () ()
+  (let ((data (alexandria:read-stream-content-into-string (body-stream *request*)))
+        (persisted-users (make-array 0 :adjustable t :fill-pointer 0)))
+    (let ((users (shasht:read-json data)))
+      (loop
+        for user across users
+        do (progn
+             (let* ((user-id (persist-user user)))
+               (vector-push-extend user-id persisted-users)))))
+    (api-output `(,persisted-users))))
+
+(define-api weather/dashboards () ()
+  (let ((dashboards (dm:get 'dashboards (db:query :all))))
+    (api-output `(,dashboards))))
