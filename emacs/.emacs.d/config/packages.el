@@ -55,3 +55,6 @@
 ;; need to include a file tree
 (use-package treemacs)
 (use-package treemacs-projectile)
+
+;; Extra themes
+(use-package doom-themes)

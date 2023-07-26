@@ -24,6 +24,12 @@ To remove
 stow -D emacs -t ~
 ```
 
+## Dependencies
+```bash
+M-x package-install RET use-package
+npm install -g typescript-language-server
+```
+
 ## Contributing
 
 Pull requests are welcome.
