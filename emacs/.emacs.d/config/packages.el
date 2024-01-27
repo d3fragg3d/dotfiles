@@ -18,8 +18,8 @@
 (use-package lsp-mode)
 
 ;; languages
-(use-package js2-mode)
-(use-package typescript-mode)
+;(use-package js2-mode)
+;(use-package typescript-mode)
 
 ;; git integration
 (use-package magit)

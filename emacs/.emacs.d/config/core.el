@@ -28,12 +28,22 @@
 ;; Make sure we store autosaves and backups in their own dir so they don't taint repos
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 (setq auto-save-file-name-transforms `((".*" "~/.emacs.d/auto-saves/" t)))
+(setq lock-file-name-transforms '(("\\`/.*/\\([^/]+\\)\\'" "~/.emacs.d/locks/\\1" t)))
 
 ;; support multiple .env filenames
 (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode))
+
+;; stop annoying emacs sounds
+(setq ring-bell-function 'ignore)
 
 ;; Allow for faster movement
 (global-set-key (kbd "C-n")
     (lambda () (interactive) (forward-line  5)))
 (global-set-key (kbd "C-p")
     (lambda () (interactive) (forward-line -5)))
+
+;; Window / Pane splitting
+(global-set-key (kbd "C-S-<up>") 'split-window-vertically)
+(global-set-key (kbd "C-S-<down>") 'split-window-vertically)
+(global-set-key (kbd "C-S-<left>") 'split-window-horizontally)
+(global-set-key (kbd "C-S-<right>") 'split-window-horizontally)
