@@ -37,3 +37,10 @@
     (lambda () (interactive) (forward-line  5)))
 (global-set-key (kbd "C-p")
     (lambda () (interactive) (forward-line -5)))
+
+;; Set indentation
+;; Use spaces instead of tabs for indentation
+(setq-default indent-tabs-mode nil)
+
+;; Set the default number of spaces for each level of indentation
+(setq-default standard-indent 2)
