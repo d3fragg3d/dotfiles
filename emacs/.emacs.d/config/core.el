@@ -28,9 +28,13 @@
 ;; Make sure we store autosaves and backups in their own dir so they don't taint repos
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 (setq auto-save-file-name-transforms `((".*" "~/.emacs.d/auto-saves/" t)))
+(setq lock-file-name-transforms '(("\\`/.*/\\([^/]+\\)\\'" "~/.emacs.d/locks/\\1" t)))
 
 ;; support multiple .env filenames
 (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode))
+
+;; stop annoying emacs sounds
+(setq ring-bell-function 'ignore)
 
 ;; Allow for faster movement
 (global-set-key (kbd "C-n")
@@ -42,5 +46,8 @@
 ;; Use spaces instead of tabs for indentation
 (setq-default indent-tabs-mode nil)
 
-;; Set the default number of spaces for each level of indentation
-(setq-default standard-indent 2)
+;; Window / Pane splitting
+(global-set-key (kbd "C-S-<up>") 'split-window-vertically)
+(global-set-key (kbd "C-S-<down>") 'split-window-vertically)
+(global-set-key (kbd "C-S-<left>") 'split-window-horizontally)
+(global-set-key (kbd "C-S-<right>") 'split-window-horizontally)
