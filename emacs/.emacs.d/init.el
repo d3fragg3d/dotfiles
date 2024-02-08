@@ -9,6 +9,7 @@
 (load (concat config-dir "/vertico.el"))
 (load (concat config-dir "/company.el"))
 (load (concat config-dir "/shortcuts.el"))
+(load (concat config-dir "/org-mode.el"))
 
 ;; languages
 (load (concat config-dir "/lisp.el"))
