@@ -33,6 +33,9 @@
 (use-package vertico)
 (use-package orderless)
 
+;; Consult for search and project navigation
+(use-package consult)
+
 ;; colourful parens
 (use-package rainbow-delimiters)
 

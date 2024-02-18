@@ -17,6 +17,7 @@
 (load (concat config-dir "/windmove.el"))
 (load (concat config-dir "/projectile.el"))
 (load (concat config-dir "/treemacs.el"))
+(load (concat config-dir "/consult.el"))
 
 (load custom-file 'noerror)
 (put 'upcase-region 'disabled nil)
