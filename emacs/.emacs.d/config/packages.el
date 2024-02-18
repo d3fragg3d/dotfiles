@@ -49,15 +49,18 @@
 ;; lets support fuzzy file searching to help with files that are not versioned
 (use-package fzf)
 
-;; dotenv support
+;; file types
 (use-package dotenv-mode)
+(use-package yaml-mode)
 
 ;; better project support
 (use-package projectile)
 
 ;; need to include a file tree
 (use-package treemacs)
-(use-package treemacs-projectile)
+(use-package treemacs-projectile
+  :after treemacs projectile
+  :ensure t)
 
 ;; Extra themes
 (use-package doom-themes)

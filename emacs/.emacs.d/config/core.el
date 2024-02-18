@@ -42,6 +42,10 @@
 (global-set-key (kbd "C-p")
     (lambda () (interactive) (forward-line -5)))
 
+;; Set indentation
+;; Use spaces instead of tabs for indentation
+(setq-default indent-tabs-mode nil)
+
 ;; Window / Pane splitting
 (global-set-key (kbd "C-S-<up>") 'split-window-vertically)
 (global-set-key (kbd "C-S-<down>") 'split-window-vertically)
