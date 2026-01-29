@@ -7,5 +7,3 @@
 ;; Enable rainbow parens for lisp
 (add-hook 'lisp-mode-hook #'rainbow-delimiters-mode)
 
-;; enable slime-company
-(slime-setup '(slime-repl slime-fancy slime-company))

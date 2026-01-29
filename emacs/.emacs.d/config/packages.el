@@ -12,7 +12,7 @@
 (setq use-package-always-ensure t) ; Automatically install packages if not present
 
 ;; lisp development env
-(use-package slime)
+(use-package sly)
 
 ;; language server protocol
 (use-package lsp-mode)
@@ -41,7 +41,11 @@
 
 ;; code completion
 (use-package company)
-(use-package slime-company)
+(use-package sly-company
+  :after (sly company)
+  :hook (sly-mode . sly-company-mode)
+  :config
+  (add-to-list 'company-backends 'sly-company))
 
 ;; easy pane and window navigation
 (use-package windmove)
