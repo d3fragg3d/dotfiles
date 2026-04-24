@@ -1,0 +1,49 @@
+{
+  "layer": "top",
+  "position": "top",
+  "exclusive": true,
+  "height": 34,
+  "spacing": 8,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["network", "pulseaudio", "battery", "tray"],
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate"
+  },
+
+  "clock": {
+    "format": "{:%a %d %b  %H:%M}"
+  },
+
+  "network": {
+    "format-wifi": "󰖩 {essid}",
+    "format-ethernet": "󰈀 Wired",
+    "format-disconnected": "󰖪 Offline",
+    "tooltip": false
+  },
+
+  "pulseaudio": {
+    "format": " {volume}%",
+    "format-muted": "󰝟 Muted",
+    "tooltip": false
+  },
+
+  "battery": {
+    "format": "󰁹 {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-warning": "󰁺 {capacity}%",
+    "states": {
+      "warning": 25,
+      "critical": 15
+    },
+    "tooltip": false,
+    "on-click": "~/.config/hypr/scripts/powermenu.sh"
+  },
+
+  "tray": {
+    "spacing": 10
+  }
+}
