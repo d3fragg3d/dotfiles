@@ -5,43 +5,67 @@
 }
 
 window#waybar {
-  background: rgba(30, 30, 46, 0.92);
-  color: #cdd6f4;
-  border-bottom: 1px solid #45475a;
+  background: transparent;
+  color: #e8d5bf;
+  border: none;
 }
 
+/* Left island */
 #workspaces {
-  margin: 0 8px;
+  background: rgba(26, 21, 18, 0.92);
+  border: 1px solid #3d3228;
+  border-radius: 12px;
+  margin: 4px 4px;
+  padding: 0 4px;
 }
 
 #workspaces button {
-  padding: 0 10px;
-  margin: 6px 4px;
-  border-radius: 10px;
-  color: #cdd6f4;
+  padding: 0 12px;
+  margin: 3px 2px;
+  border-radius: 8px;
+  color: #e8d5bf;
   background: transparent;
+  transition: all 0.15s ease;
 }
 
 #workspaces button.active {
-  background: #cba6f7;
-  color: #1e1e2e;
+  background: #c4956a;
+  color: #1a1512;
 }
 
-#clock,
+#workspaces button:hover {
+  background: #3d3228;
+  color: #e8d5bf;
+}
+
+/* Center island */
+#clock {
+  background: rgba(26, 21, 18, 0.92);
+  border: 1px solid #3d3228;
+  border-radius: 12px;
+  margin: 4px 0;
+  padding: 0 16px;
+}
+
+/* Right pills */
+#backlight,
 #network,
-#pulseaudio,
+#wireplumber,
 #battery,
 #tray {
-  margin: 6px 6px;
+  background: rgba(26, 21, 18, 0.92);
+  border: 1px solid #3d3228;
+  border-radius: 12px;
+  margin: 4px 3px;
   padding: 0 12px;
-  border-radius: 10px;
-  background: #313244;
 }
 
 #battery.warning {
-  color: #f9e2af;
+  color: #d4b483;
+  border-color: #d4b483;
 }
 
 #battery.critical {
-  color: #f38ba8;
+  color: #c46a6a;
+  border-color: #c46a6a;
 }

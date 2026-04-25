@@ -24,6 +24,9 @@ To remove
 stow -D emacs -t ~
 ```
 
+## Using stow with ly or other system configurations
+sudo rm -f /etc/ly/config.ini && sudo stow -t /etc/ly ly
+
 ## Dependencies
 ```bash
 M-x package-install RET use-package

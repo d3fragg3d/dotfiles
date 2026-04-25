@@ -2,20 +2,35 @@
   "layer": "top",
   "position": "top",
   "exclusive": true,
-  "height": 34,
-  "spacing": 8,
+  "margin": "8 8 0 8",
+  "height": 36,
+  "spacing": 4,
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["network", "pulseaudio", "battery", "tray"],
+  "modules-right": ["backlight", "network", "wireplumber", "battery", "tray"],
 
   "hyprland/workspaces": {
-    "format": "{name}",
+    "format": "{icon}",
+    "format-icons": {
+      "1": "󰖟 Web",
+      "2": "󰆍 Term",
+      "3": "󰒋 Dev",
+      "4": "󰉋 Files",
+      "5": "󰎆 Media"
+    },
+    "persistent-workspaces": {
+      "*": 5
+    },
     "on-click": "activate"
   },
 
   "clock": {
     "format": "{:%a %d %b  %H:%M}"
+  },
+
+  "backlight": {
+    "format": "󰃠 {percent}%"
   },
 
   "network": {
@@ -25,8 +40,8 @@
     "tooltip": false
   },
 
-  "pulseaudio": {
-    "format": " {volume}%",
+  "wireplumber": {
+    "format": "󰕾 {volume}%",
     "format-muted": "󰝟 Muted",
     "tooltip": false
   },
