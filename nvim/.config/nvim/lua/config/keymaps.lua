@@ -7,6 +7,6 @@ vim.keymap.set("n", "<leader>F", function()
   require("telescope.builtin").find_files({
     cwd = vim.fn.expand("~"),
     hidden = true,
-    find_command = { "fd", "--type", "f", "--hidden", "--exclude", ".git" },
+    find_command = { "fd", "--type", "f", "--hidden", "--follow", "--exclude", ".git" },
   })
 end, { desc = "Find Files (Home)" })

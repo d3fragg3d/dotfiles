@@ -29,4 +29,4 @@
 (define-key minibuffer-local-map (kbd "M-r") #'consult-history)
 
 ;; fd settings: include hidden directories (e.g. ~/.config)
-(setq consult-fd-args '("fd" "--color=never" "--hidden" "--search-path" "."))
+(setq consult-fd-args '("fd" "--color=never" "--hidden" "--follow" "--search-path" "."))
