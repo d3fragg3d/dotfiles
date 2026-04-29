@@ -13,6 +13,7 @@
 
 ;; languages
 (load (concat config-dir "/lisp.el"))
+(load (concat config-dir "/go.el"))
 ;(load (concat config-dir "/javascript.el"))
 
 (load (concat config-dir "/windmove.el"))

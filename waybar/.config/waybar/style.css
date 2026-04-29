@@ -1,0 +1,97 @@
+* {
+  font-family: JetBrainsMono Nerd Font, JetBrains Mono, sans-serif;
+  font-size: 13px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+  color: #e8d5bf;
+  border: none;
+}
+
+/* Left island */
+#workspaces {
+  background: rgba(26, 21, 18, 0.92);
+  border: 1px solid #3d3228;
+  border-radius: 12px;
+  margin: 4px 4px;
+  padding: 0 4px;
+}
+
+#workspaces button {
+  padding: 0 12px;
+  margin: 3px 2px;
+  border-radius: 8px;
+  color: #e8d5bf;
+  background: transparent;
+  transition: all 0.15s ease;
+}
+
+#workspaces button.active {
+  background: #c4956a;
+  color: #1a1512;
+  padding: 0 14px;
+}
+
+#workspaces button:hover {
+  background: #3d3228;
+  color: #e8d5bf;
+}
+
+/* Center island */
+#clock {
+  background: rgba(26, 21, 18, 0.92);
+  border: 1px solid #3d3228;
+  border-radius: 12px;
+  margin: 4px 0;
+  padding: 0 16px;
+}
+
+/* Right pills */
+#custom-vpn,
+#network,
+#wireplumber,
+#battery,
+#tray {
+  background: rgba(26, 21, 18, 0.92);
+  border: 1px solid #3d3228;
+  border-radius: 12px;
+  margin: 4px 3px;
+  padding: 0 12px;
+}
+
+#custom-vpn,
+#network,
+#wireplumber,
+#battery,
+#backlight {
+  transition: all 0.18s ease;
+}
+
+#custom-vpn:hover,
+#network:hover,
+#wireplumber:hover,
+#battery:hover,
+#backlight:hover {
+  border-color: #c4956a;
+}
+
+#battery.warning {
+  color: #d4b483;
+  border-color: #d4b483;
+}
+
+#battery.critical {
+  color: #c46a6a;
+  border-color: #c46a6a;
+}
+
+#custom-vpn.connected {
+  color: #9fd39f;
+  border-color: #9fd39f;
+}
+
+#custom-vpn.disconnected {
+  color: #e8d5bf;
+}

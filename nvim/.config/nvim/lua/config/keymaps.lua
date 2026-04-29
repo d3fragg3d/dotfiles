@@ -9,3 +9,11 @@ vim.keymap.set("n", "<leader><space>", function()
     find_command = { "fd", "--type", "f", "--hidden", "--follow", "--exclude", ".git" },
   })
 end, { desc = "Find Files (Root Dir)" })
+
+-- Space-F: find any file from home (when you need to break out of the project)
+vim.keymap.set("n", "<leader>F", function()
+  require("telescope.builtin").find_files({
+    cwd = vim.fn.expand("~"),
+    find_command = { "fd", "--type", "f", "--hidden", "--follow", "--exclude", ".git" },
+  })
+end, { desc = "Find Files (Home)" })
