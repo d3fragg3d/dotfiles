@@ -1,76 +1,158 @@
-# Emacs Usage Guide
+# Emacs Cheatsheet
 
-## 1. Opening / Adding a Project
+> **Tip:** Press any prefix key (`C-c`, `C-x`, `M-s`, etc.) and **wait a second** — `which-key` will show everything available under that prefix. Use `C-h k` followed by any key to see what it does.
 
-- `C-c p p` — switch to a known project
-- `C-c p A` — add a directory as a known project
-- `C-c t` — toggle Treemacs file tree
+---
 
-## 2. Finding Files in a Project
+## Basics
 
-- `C-c p f` — find file in current project (Projectile)
-- `M-s d` — find file by name using `find` (Consult)
-- `C-x b` — switch buffer (includes project buffers)
-- `C-x p b` — switch buffer within current project
+| Key | Action |
+|-----|--------|
+| `C-x C-f` | Open file (type path, fuzzy completion works) |
+| `C-x C-s` | Save file |
+| `C-x C-w` | Save as |
+| `C-x k` | Kill (close) buffer |
+| `C-x C-c` | Quit Emacs |
+| `C-/` | Undo |
+| `C-g` | Cancel current command |
+| `M-x` | Run any command by name |
 
-## 3. Searching Across a Project
+---
 
-- `M-s g` — grep
-- `M-s G` — git-grep
-- `M-s r` — ripgrep
-- `M-s l` — search lines in current buffer
-- `M-s L` — search lines across all buffers
+## File Navigation
 
-## 4. Splitting and Navigating Windows
+| Key | Action |
+|-----|--------|
+| `C-c f` | **Fuzzy find any file on disk** (fd, includes hidden dirs) |
+| `C-x C-r` | **Recent files** (files you've had open before) |
+| `C-c p f` | Find file in current project (Projectile) |
+| `C-c p p` | Switch to a known project |
+| `C-c p A` | Register a directory as a project |
+| `C-x b` | Switch buffer (shows recent files too) |
+| `C-x C-f` | Open file by path with fuzzy completion |
+
+> For `~/.config/waybar/style.css`: hit `C-c f`, type `waybar style`, enter.
+
+---
+
+## Search
+
+| Key | Action |
+|-----|--------|
+| `M-s l` | Search lines in current buffer |
+| `M-s L` | Search lines across all open buffers |
+| `M-s r` | Ripgrep across project |
+| `M-s G` | Git grep |
+| `M-s g` | Grep |
+| `M-g g` | Go to line number |
+| `M-g i` | Jump to symbol/heading in file (imenu) |
+
+---
+
+## Windows and Panes
 
 **Splitting:**
-- `C-S-<up>` or `C-S-<down>` — split vertically
-- `C-S-<left>` or `C-S-<right>` — split horizontally
 
-**Navigation:**
-- `S-<arrow>` — move focus to window in that direction (Windmove)
+| Key | Action |
+|-----|--------|
+| `C-S-<left>` / `C-S-<right>` | Split horizontally |
+| `C-S-<up>` / `C-S-<down>` | Split vertically |
+
+**Moving between panes:**
+
+| Key | Action |
+|-----|--------|
+| `C-c <left/right/up/down>` | Move focus to pane in that direction |
 
 **Closing:**
-- `C-x 0` — close current window
-- `C-x 1` — close all other windows
 
-## 5. Starting a Common Lisp REPL (SLY)
+| Key | Action |
+|-----|--------|
+| `C-x 0` | Close current window |
+| `C-x 1` | Close all other windows (maximise current) |
+| `C-x 2` | Split below |
+| `C-x 3` | Split right |
 
-- `M-x sly` — start SLY connected to SBCL
-- The REPL opens in a split window
+---
 
-## 6. Running / Reloading Lisp Code
+## Buffers
 
-- `C-c C-c` — compile the form at point
-- `C-c C-k` — compile and load the current file
-- `C-c C-l` — load a Lisp file
-- `C-c C-z` — switch to the REPL buffer
+| Key | Action |
+|-----|--------|
+| `C-x b` | Switch buffer (fuzzy, shows all open files) |
+| `C-x C-b` | List all buffers |
+| `C-x k` | Kill current buffer |
+| `M-y` | Browse clipboard/kill-ring history |
 
-## 7. Debugging Common Lisp
+---
 
-**Entering the debugger:**
-- Errors automatically open the SLY debugger (SLDB)
-- Invoke `(break)` in code to set a breakpoint
+## Git (Magit)
 
-**In the debugger:**
-- `v` — show source location of current frame
-- `e` — evaluate expression in frame context
-- `i` — inspect value at point
-- `t` — toggle display of local variables
-- `0-9` — invoke restart by number
-- `a` — abort
-- `c` — continue (if restart available)
-- `q` — quit debugger
+| Key | Action |
+|-----|--------|
+| `M-x magit` | Open Magit status |
+| `s` | Stage file/hunk |
+| `u` | Unstage file/hunk |
+| `c c` | Commit |
+| `P p` | Push |
+| `F p` | Pull |
+| `b b` | Switch branch |
+| `b c` | Create branch |
+| `q` | Quit Magit window |
 
-**Inspector:**
-- `M-x sly-inspect` — inspect an expression
-- `RET` — descend into value
-- `l` — go back
-- `q` — quit inspector
+---
 
-## 8. Opening a Terminal Inside Emacs
+## Common Lisp / SLY
 
-No custom keybinding configured. Use:
-- `M-x term` — terminal emulator
-- `M-x shell` — shell buffer
-- `M-x eshell` — Emacs Lisp shell
+| Key | Action |
+|-----|--------|
+| `M-x sly` | Start SLY REPL (connects to SBCL) |
+| `C-c C-c` | Compile form at point |
+| `C-c C-k` | Compile and load current file |
+| `C-c C-z` | Switch to REPL |
+
+**In the debugger (SLDB):**
+
+| Key | Action |
+|-----|--------|
+| `0-9` | Invoke restart by number |
+| `v` | Show source of current frame |
+| `e` | Eval expression in frame |
+| `a` | Abort |
+| `q` | Quit debugger |
+
+---
+
+## Go
+
+| Key | Action |
+|-----|--------|
+| `C-c C-d` | Toggle breakpoint (DAP) |
+| `C-c C-r` | Start debugger (DAP) |
+| `C-c C-t` | Run test at point |
+| `C-c C-f` | Run tests in current file |
+
+LSP runs automatically when you open a `.go` file (requires `gopls` installed).
+
+---
+
+## Org Mode
+
+| Key | Action |
+|-----|--------|
+| `C-c i` | Insert task list item |
+| `C-c n` | Create new org file and link it |
+| `TAB` | Cycle heading visibility |
+| `C-c C-t` | Toggle TODO state |
+| `C-c C-s` | Schedule item |
+| `C-c C-d` | Set deadline |
+
+---
+
+## Config
+
+| Key | Action |
+|-----|--------|
+| `C-c e` | Open `init.el` |
+| `C-c r` | Reload config |
+| `C-c t` | Toggle Treemacs file tree |
