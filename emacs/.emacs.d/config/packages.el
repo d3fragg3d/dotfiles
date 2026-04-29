@@ -89,8 +89,7 @@
 
 ;; Better modeline
 (use-package doom-modeline
-  :init (doom-modeline-mode 1)
-  :config (setq doom-modeline-icon nil))
+  :init (doom-modeline-mode 1))
 
 ;; Jump to any visible text in 2 keystrokes
 (use-package avy
