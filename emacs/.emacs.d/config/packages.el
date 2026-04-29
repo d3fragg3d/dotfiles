@@ -87,6 +87,27 @@
 ;; Extra themes
 (use-package doom-themes)
 
+;; Better modeline
+(use-package doom-modeline
+  :init (doom-modeline-mode 1)
+  :config (setq doom-modeline-icon nil))
+
+;; Jump to any visible text in 2 keystrokes
+(use-package avy
+  :bind ("C-;" . avy-goto-char-2))
+
+;; Actions on any completion candidate
+(use-package embark
+  :bind (("C-." . embark-act)
+         ("C-h B" . embark-bindings))
+  :init (setq prefix-help-command #'embark-prefix-help-command))
+
+(use-package embark-consult
+  :hook (embark-collect-mode . consult-preview-at-point-mode))
+
+;; Edit search results inline across files
+(use-package wgrep)
+
 ;; Envrc - Handy for bootstrapping envs
 (use-package envrc
   :config

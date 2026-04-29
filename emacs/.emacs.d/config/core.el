@@ -41,7 +41,21 @@
 (global-set-key (kbd "C-p")
     (lambda () (interactive) (forward-line -5)))
 
-;; Set indentation
+;; Typing with a selection replaces it (like every other editor)
+(delete-selection-mode t)
+
+;; Auto-refresh buffers when files change on disk (e.g. after git checkout)
+(global-auto-revert-mode t)
+
+;; Line numbers in every buffer
+(global-display-line-numbers-mode t)
+
+;; Auto-close brackets, parens, quotes
+(electric-pair-mode t)
+
+;; Smooth pixel scrolling (Emacs 29+)
+(pixel-scroll-precision-mode t)
+
 ;; Use spaces instead of tabs for indentation
 (setq-default indent-tabs-mode nil)
 
