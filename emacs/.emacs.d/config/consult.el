@@ -1,3 +1,7 @@
+;; File navigation - the fast workflow
+(global-set-key (kbd "C-x C-r") #'consult-recent-file)  ; recent files (recentf-mode tracks these)
+(global-set-key (kbd "C-c f") #'consult-fd)              ; fuzzy file search anywhere with fd
+
 (global-set-key (kbd "C-c M-x") #'consult-mode-command)
 (global-set-key (kbd "C-c h") #'consult-history)
 (global-set-key (kbd "C-c k") #'consult-kmacro)

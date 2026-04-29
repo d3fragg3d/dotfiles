@@ -12,17 +12,33 @@
 (setq use-package-always-ensure t) ; Automatically install packages if not present
 
 ;; lisp development env
-(use-package sly)
+(use-package sly
+  :defer t)
 
 ;; language server protocol
-(use-package lsp-mode)
+(use-package lsp-mode
+  :defer t)
+(use-package lsp-ui
+  :defer t
+  :after lsp-mode
+  :config
+  (setq lsp-ui-doc-enable t
+        lsp-ui-sideline-enable t))
 
-;; languages
-;(use-package js2-mode)
-;(use-package typescript-mode)
+;; debugger adapter protocol (line-by-line debugging)
+(use-package dap-mode
+  :defer t
+  :after lsp-mode
+  :config
+  (dap-auto-configure-mode))
+
+;; Go
+(use-package go-mode
+  :mode "\\.go\\'")
 
 ;; git integration
-(use-package magit)
+(use-package magit
+  :defer t)
 
 ;; emacs shortcut helper
 (use-package which-key
@@ -36,35 +52,42 @@
 ;; Consult for search and project navigation
 (use-package consult)
 
-;; colourful parens
-(use-package rainbow-delimiters)
+;; annotations in completion lists (file sizes, dates, descriptions)
+(use-package marginalia
+  :init
+  (marginalia-mode))
 
-;; code completion
-(use-package company)
-(use-package sly-company
-  :after (sly company)
-  :hook (sly-mode . sly-company-mode)
-  :config
-  (add-to-list 'company-backends 'sly-company))
+;; colourful parens
+(use-package rainbow-delimiters
+  :defer t)
+
+;; code completion - defer until after init to avoid slowing startup
+(use-package company
+  :hook (after-init . global-company-mode))
 
 ;; easy pane and window navigation
 (use-package windmove)
 
-;; lets support fuzzy file searching to help with files that are not versioned
-(use-package fzf)
-
 ;; file types
-(use-package dotenv-mode)
-(use-package yaml-mode)
+(use-package dotenv-mode
+  :defer t)
+(use-package yaml-mode
+  :mode "\\.ya?ml\\'")
 
 ;; better project support
 (use-package projectile)
 
-;; need to include a file tree
-(use-package treemacs)
+;; file tree
+(use-package treemacs
+  :defer t)
 (use-package treemacs-projectile
-  :after treemacs projectile
-  :ensure t)
+  :defer t
+  :after (treemacs projectile))
 
 ;; Extra themes
 (use-package doom-themes)
+
+;; Envrc - Handy for bootstrapping envs
+(use-package envrc
+  :config
+  (envrc-global-mode))
