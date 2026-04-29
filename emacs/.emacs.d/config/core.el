@@ -1,7 +1,6 @@
-;; Disable the toolbar (graphical)
+;; Disable chrome we don't need
 (tool-bar-mode -1)
-
-;; Disable the scrollbar
+(menu-bar-mode -1)
 (scroll-bar-mode -1)
 
 ;; Highlight matching parens under caret
