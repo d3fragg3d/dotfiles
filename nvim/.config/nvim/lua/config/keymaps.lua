@@ -2,11 +2,10 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- Find any file from home directory (equivalent to C-c f in Emacs)
-vim.keymap.set("n", "<leader>F", function()
+-- Override Space-Space to include hidden dirs and follow stow symlinks
+vim.keymap.set("n", "<leader><space>", function()
   require("telescope.builtin").find_files({
-    cwd = vim.fn.expand("~"),
-    hidden = true,
+    cwd = LazyVim.root(),
     find_command = { "fd", "--type", "f", "--hidden", "--follow", "--exclude", ".git" },
   })
-end, { desc = "Find Files (Home)" })
+end, { desc = "Find Files (Root Dir)" })
