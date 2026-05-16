@@ -8,6 +8,7 @@ sudo pacman -Syu --noconfirm
 
 # ── Official packages ──────────────────────────────────────────────────────────
 
+
 echo "==> Installing packages..."
 
 sudo pacman -S --needed --noconfirm \
