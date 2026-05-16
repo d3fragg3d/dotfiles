@@ -40,12 +40,17 @@ window#waybar {
 }
 
 /* Center island */
-#clock {
+#clock,
+#mpris {
   background: rgba(26, 21, 18, 0.92);
   border: 1px solid #3d3228;
   border-radius: 12px;
-  margin: 4px 0;
+  margin: 4px 3px;
   padding: 0 16px;
+}
+
+#mpris.paused {
+  color: #8a7060;
 }
 
 /* Right pills */
@@ -53,6 +58,7 @@ window#waybar {
 #network,
 #wireplumber,
 #battery,
+#custom-notification,
 #tray {
   background: rgba(26, 21, 18, 0.92);
   border: 1px solid #3d3228;

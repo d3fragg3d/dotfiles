@@ -7,6 +7,9 @@ return {
     view_options = {
       show_hidden = true, -- show dotfiles
     },
+    keymaps = {
+      ["q"] = "actions.close",
+    },
   },
   keys = {
     { "-", "<cmd>Oil<cr>", desc = "Open parent directory" },

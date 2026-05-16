@@ -8,16 +8,16 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock", "mpris"],
-  "modules-right": ["custom/vpn", "network", "wireplumber", "battery", "tray"],
+  "modules-right": ["custom/vpn", "network", "wireplumber", "battery", "custom/notification", "tray"],
 
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
       "1": "󰖟 Web",
       "2": "󰆍 Term",
-      "3": "󰒋 Dev",
-      "4": "󰉋 Files",
-      "5": "󰎆 Media"
+      "3": "󰒋 Vim",
+      "4": "󰎆 Media",
+      "5": "󰾍 Misc"
     },
     "persistent-workspaces": {
       "*": 5
@@ -26,7 +26,16 @@
   },
 
   "clock": {
-    "format": "{:%a %d %b  %H:%M}"
+    "format": "{:%a %d %b  %H:%M}",
+    "on-click": "~/.config/hypr/scripts/calendar.sh",
+    "tooltip": false
+  },
+
+  "mpris": {
+    "format": "󰐊 {title}",
+    "format-paused": "󰏤 {title}",
+    "max-length": 30,
+    "tooltip": false
   },
 
   "network": {
@@ -60,6 +69,23 @@
     "return-type": "json",
     "on-click": "~/.config/hypr/scripts/vpn-toggle.sh",
     "tooltip": false
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󰂚",
+      "none": "󰂜",
+      "dnd-notification": "󰂛",
+      "dnd-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
   },
 
   "tray": {

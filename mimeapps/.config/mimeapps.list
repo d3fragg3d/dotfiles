@@ -1,0 +1,5 @@
+[Default Applications]
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+application/pdf=org.pwmt.zathura.desktop
+
+[Added Associations]

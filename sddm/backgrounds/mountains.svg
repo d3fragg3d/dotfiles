@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <radialGradient id="moon-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#458588" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#458588" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1920" height="1080" fill="#1d2021"/>
+
+  <!-- Moon glow -->
+  <circle cx="1680" cy="160" r="130" fill="url(#moon-glow)"/>
+  <!-- Moon disc -->
+  <circle cx="1680" cy="160" r="34" fill="#3a6065" opacity="0.55"/>
+
+  <!-- Stars -->
+  <circle cx="120"  cy="95"  r="1.2" fill="#928374" opacity="0.55"/>
+  <circle cx="310"  cy="60"  r="0.9" fill="#928374" opacity="0.45"/>
+  <circle cx="480"  cy="130" r="1.4" fill="#928374" opacity="0.40"/>
+  <circle cx="720"  cy="75"  r="1.0" fill="#928374" opacity="0.55"/>
+  <circle cx="890"  cy="110" r="0.8" fill="#928374" opacity="0.35"/>
+  <circle cx="1050" cy="50"  r="1.3" fill="#928374" opacity="0.50"/>
+  <circle cx="1240" cy="90"  r="1.0" fill="#928374" opacity="0.45"/>
+  <circle cx="1390" cy="130" r="1.5" fill="#928374" opacity="0.35"/>
+  <circle cx="1520" cy="70"  r="0.9" fill="#928374" opacity="0.50"/>
+  <circle cx="1820" cy="90"  r="1.1" fill="#928374" opacity="0.40"/>
+
+  <!-- Layer 1: Distant range — tall sharp peaks, barely lifted from sky -->
+  <polygon
+    points="0,1080
+            0,660
+            240,540
+            380,320
+            520,530
+            660,280
+            800,500
+            940,250
+            1080,470
+            1220,300
+            1380,500
+            1520,350
+            1680,520
+            1820,410
+            1920,550
+            1920,1080"
+    fill="#232120"/>
+
+  <!-- Layer 2: Mid range — medium peaks, clear depth separation -->
+  <polygon
+    points="0,1080
+            0,780
+            200,680
+            400,760
+            560,590
+            720,700
+            880,550
+            1040,680
+            1200,600
+            1360,700
+            1520,630
+            1700,740
+            1920,695
+            1920,1080"
+    fill="#2c2926"/>
+
+  <!-- Layer 3: Near range — broad rolling forms -->
+  <polygon
+    points="0,1080
+            0,880
+            320,845
+            560,878
+            800,835
+            1040,868
+            1280,840
+            1520,872
+            1760,848
+            1920,878
+            1920,1080"
+    fill="#363230"/>
+
+  <!-- Foreground floor — darker than sky to anchor the scene -->
+  <polygon
+    points="0,1080
+            0,988
+            640,972
+            1280,978
+            1920,988
+            1920,1080"
+    fill="#1a1918"/>
+
+</svg>

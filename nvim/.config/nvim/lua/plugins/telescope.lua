@@ -1,6 +1,9 @@
 return {
   "nvim-telescope/telescope.nvim",
   opts = {
+    defaults = {
+      spinner_symbols = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
+    },
     pickers = {
       find_files = {
         hidden = true,

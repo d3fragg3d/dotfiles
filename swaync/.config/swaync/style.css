@@ -1,0 +1,142 @@
+/* Override theme variables — swaync uses these throughout its default CSS */
+:root {
+  --cc-bg: rgba(26, 21, 18, 0.97);
+  --noti-border-color: #3d3228;
+  --noti-bg: 36, 31, 27;
+  --noti-bg-alpha: 0.98;
+  --noti-bg-darker: rgb(26, 21, 18);
+  --noti-bg-hover: rgb(50, 42, 35);
+  --noti-bg-focus: rgba(61, 50, 40, 0.4);
+  --noti-close-bg: rgba(61, 50, 40, 0.8);
+  --noti-close-bg-hover: rgba(196, 106, 106, 0.9);
+  --text-color: #e8d5bf;
+  --text-color-disabled: #6b5a4a;
+  --bg-selected: #c4956a;
+  --border-radius: 10px;
+  --font-size-body: 13px;
+  --font-size-summary: 13px;
+}
+
+* {
+  font-family: JetBrainsMono Nerd Font, JetBrains Mono, monospace;
+}
+
+/* Notification padding */
+.notification-row .notification-background {
+  padding: 8px 12px;
+}
+
+.notification-row .notification-background .notification .notification-default-action {
+  padding: 10px 12px;
+}
+
+.widget {
+  margin: 10px;
+  padding: 10px;
+}
+
+.control-center-list {
+  padding-bottom: 8px;
+}
+
+/* Remove group stacking visual */
+.notification-group {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notification-group .notification-group-headers,
+.notification-group .notification-group-buttons {
+  margin: 0 8px;
+}
+
+.notification-group .notification-group-close-button .close-button {
+  margin: 4px 8px;
+}
+
+.notification-group .notification-group-headers {
+  padding: 4px 0;
+}
+
+/* Hide stacked rows entirely instead of showing them as a physical stack */
+.notification-group.collapsed .notification-row:not(:last-child) {
+  min-height: 0;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+/* Remove the multi-layer box shadow that causes the stacked look */
+.control-center .control-center-list .notification {
+  box-shadow: none;
+}
+
+/* Urgency borders */
+.notification-row .notification-background .notification.normal {
+  border: 1px solid #c4956a;
+}
+
+.notification-row .notification-background .notification.critical {
+  border: 1px solid #c46a6a;
+}
+
+/* Shrink the oversized widget title and DND labels */
+.widget-title > label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.widget-dnd label {
+  font-size: 13px;
+}
+
+/* Close button colours */
+.close-button {
+  border-radius: 100%;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.close-button:hover {
+  color: #1a1512;
+}
+
+/* Clear All button */
+.widget-title > button {
+  background: #241f1b;
+  border: 1px solid #3d3228;
+  color: #e8d5bf;
+  font-size: 12px;
+}
+
+.widget-title > button:hover {
+  background: #c4956a;
+  border-color: #c4956a;
+  color: #1a1512;
+}
+
+/* DND switch */
+.widget-dnd switch {
+  background: #3d3228;
+}
+
+.widget-dnd switch:checked {
+  background: #c4956a;
+}
+
+.widget-dnd switch slider {
+  background: #e8d5bf;
+}
+
+/* ── Popup notification offset (match dunst offset = 48x48) ── */
+
+.floating-notifications {
+  margin-top: 28px;
+}
+
+.floating-notifications .notification-row {
+  margin-right: 28px;
+}
