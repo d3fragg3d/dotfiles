@@ -18,7 +18,7 @@ sudo pacman -S --needed --noconfirm \
   fuzzel \
   hyprlock \
   hypridle \
-  hyprpaper \
+  awww \
   hyprsunset \
   hyprpolkitagent \
   swaync \
@@ -30,6 +30,19 @@ sudo pacman -S --needed --noconfirm \
   cliphist \
   brightnessctl \
   playerctl \
+  xdg-desktop-portal-hyprland \
+  xdg-desktop-portal-gtk \
+  nwg-look \
+  gnome-themes-extra \
+  bluez \
+  bluez-utils \
+  blueman \
+  swayosd \
+  eza \
+  bat \
+  zoxide \
+  fastfetch \
+  btop \
   networkmanager \
   network-manager-applet \
   nm-connection-editor \
@@ -73,7 +86,9 @@ echo "==> Installing AUR packages..."
 yay -S --needed --noconfirm \
   hyprswitch \
   nordvpn-bin \
-  where-is-my-sddm-theme
+  where-is-my-sddm-theme \
+  gruvbox-dark-gtk \
+  wlogout
 
 # ── Flatpak ────────────────────────────────────────────────────────────────────
 
@@ -85,6 +100,7 @@ flatpak install -y flathub app.zen_browser.zen
 
 echo "==> Enabling services..."
 sudo systemctl enable NetworkManager
+sudo systemctl enable bluetooth
 sudo systemctl enable sddm
 # sudo systemctl enable ly  # alternative: uncomment and disable sddm to use ly instead
 systemctl --user enable pipewire.service pipewire-pulse.service wireplumber.service || true
@@ -116,6 +132,12 @@ stow -t ~ nvim
 stow -t ~ bash
 stow -t ~ git
 stow -t ~ mimeapps
+stow -t ~ gtk
+stow -t ~ wlogout
+
+echo "==> Installing system sleep hooks..."
+sudo cp "$DOTFILES/system/systemd/system-sleep/nm-wifi-resume" /usr/lib/systemd/system-sleep/nm-wifi-resume
+sudo chmod +x /usr/lib/systemd/system-sleep/nm-wifi-resume
 
 echo "==> Installing SDDM config..."
 sudo mkdir -p /etc/sddm.conf.d

@@ -41,6 +41,7 @@ window#waybar {
 
 /* Center island */
 #clock,
+#custom-weather,
 #mpris {
   background: rgba(26, 21, 18, 0.92);
   border: 1px solid #3d3228;
@@ -55,8 +56,9 @@ window#waybar {
 
 /* Right pills */
 #custom-vpn,
-#network,
+#custom-network,
 #wireplumber,
+#bluetooth,
 #battery,
 #custom-notification,
 #tray {
@@ -68,19 +70,26 @@ window#waybar {
 }
 
 #custom-vpn,
-#network,
+#custom-network,
 #wireplumber,
+#bluetooth,
 #battery,
 #backlight {
   transition: all 0.18s ease;
 }
 
 #custom-vpn:hover,
-#network:hover,
+#custom-network:hover,
 #wireplumber:hover,
+#bluetooth:hover,
 #battery:hover,
 #backlight:hover {
   border-color: #c4956a;
+}
+
+#bluetooth.connected {
+  color: #8aacba;
+  border-color: #8aacba;
 }
 
 
@@ -101,4 +110,9 @@ window#waybar {
 
 #custom-vpn.disconnected {
   color: #e8d5bf;
+}
+
+#custom-network.disconnected {
+  color: #c46a6a;
+  border-color: #c46a6a;
 }

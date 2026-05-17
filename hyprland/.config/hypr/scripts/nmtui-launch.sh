@@ -1,0 +1,33 @@
+#!/bin/bash
+NEWT_COLORS='
+root=white,black
+border=yellow,black
+title=yellow,black
+roottext=white,black
+window=white,black
+listitem=white,black
+actlistitem=black,yellow
+label=yellow,black
+actlabel=black,yellow
+textbox=white,black
+acttextbox=black,yellow
+button=black,yellow
+actbutton=black,red
+checkbox=white,black
+actcheckbox=black,yellow
+entry=white,black
+actentry=white,black
+disentry=gray,black
+compactbutton=black,white
+listbox=white,black
+actlistbox=black,yellow
+sellistbox=black,yellow
+actsellistbox=black,yellow
+helpline=black,yellow
+emptyscale=black,black
+fullscale=black,yellow
+disabledentry=gray,black
+shadow=black,black
+'
+export NEWT_COLORS
+exec nmtui

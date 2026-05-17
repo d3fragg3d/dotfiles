@@ -1,5 +1,5 @@
 {
-  "layer": "top",
+  "layer": "bottom",
   "position": "top",
   "exclusive": true,
   "margin": "8 8 0 8",
@@ -7,8 +7,8 @@
   "spacing": 4,
 
   "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["clock", "mpris"],
-  "modules-right": ["custom/vpn", "network", "wireplumber", "battery", "custom/notification", "tray"],
+  "modules-center": ["clock", "custom/weather", "mpris"],
+  "modules-right": ["custom/vpn", "custom/network", "wireplumber", "bluetooth", "battery", "custom/notification", "tray"],
 
   "hyprland/workspaces": {
     "format": "{icon}",
@@ -31,6 +31,13 @@
     "tooltip": false
   },
 
+  "custom/weather": {
+    "exec": "~/.config/hypr/scripts/weather.sh",
+    "interval": 1800,
+    "return-type": "json",
+    "tooltip": false
+  },
+
   "mpris": {
     "format": "󰐊 {title}",
     "format-paused": "󰏤 {title}",
@@ -38,11 +45,21 @@
     "tooltip": false
   },
 
-  "network": {
-    "format-wifi": "󰖩 {essid}",
-    "format-ethernet": "󰈀 Wired",
-    "format-disconnected": "󰖪 Offline",
+  "custom/network": {
+    "exec": "~/.config/hypr/scripts/network-status.sh",
+    "interval": 2,
+    "return-type": "json",
+    "on-click": "kitty --title nmtui --override background=#1a1512 --override background_opacity=1 --override color0=#1a1512 --override window_padding_width=0 -- ~/.config/hypr/scripts/nmtui-launch.sh",
     "tooltip": false
+  },
+
+  "bluetooth": {
+    "format": "󰂯",
+    "format-connected": "󰂱 {device_alias}",
+    "format-connected-battery": "󰂱 {device_alias} {device_battery_percentage}%",
+    "format-disabled": "󰂲",
+    "tooltip": false,
+    "on-click": "blueman-manager"
   },
 
   "wireplumber": {
@@ -60,7 +77,7 @@
       "critical": 15
     },
     "tooltip": false,
-    "on-click": "~/.config/hypr/scripts/powermenu.sh"
+    "on-click": "~/.config/hypr/scripts/wlogout.sh 4"
   },
 
   "custom/vpn": {

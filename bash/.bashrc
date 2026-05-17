@@ -136,3 +136,40 @@ export PATH="$PATH:$HOME/.local/share/nvim/mason/bin"
 export ANDROID_HOME=/home/chris/Android/Sdk
 export JAVA_HOME=/opt/android-studio/jbr
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Dark ncurses theme — amber highlights, works for whiptail/newt apps
+export NEWT_COLORS='
+root=white,black
+border=yellow,black
+title=yellow,black
+roottext=white,black
+window=white,black
+textbox=white,black
+acttextbox=black,yellow
+helpline=black,yellow
+button=black,yellow
+actbutton=black,yellow
+compactbutton=white,black
+label=white,black
+listitem=white,black
+actlistitem=black,yellow
+sellistitem=yellow,black
+actsellistitem=black,yellow
+checkbox=white,black
+actcheckbox=black,yellow
+entry=black,white
+disentry=cyan,black
+shadow=black,black
+emptyscale=black,black
+fullscale=yellow,black
+'
+
+# Better CLI tools
+alias ls='eza --icons'
+alias ll='eza -la --icons --git'
+alias la='eza -a --icons'
+alias cat='bat --paging=never'
+
+eval "$(zoxide init bash)"
+
+fastfetch
