@@ -7,7 +7,7 @@
   "spacing": 4,
 
   "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["clock", "custom/weather", "mpris"],
+  "modules-center": ["clock", "mpris"],
   "modules-right": ["custom/vpn", "custom/network", "wireplumber", "bluetooth", "battery", "custom/notification", "tray"],
 
   "hyprland/workspaces": {
@@ -31,13 +31,6 @@
     "tooltip": false
   },
 
-  "custom/weather": {
-    "exec": "~/.config/hypr/scripts/weather.sh",
-    "interval": 1800,
-    "return-type": "json",
-    "tooltip": false
-  },
-
   "mpris": {
     "format": "󰐊 {title}",
     "format-paused": "󰏤 {title}",
@@ -49,7 +42,7 @@
     "exec": "~/.config/hypr/scripts/network-status.sh",
     "interval": 2,
     "return-type": "json",
-    "on-click": "kitty --title nmtui --override background=#1a1512 --override background_opacity=1 --override color0=#1a1512 --override window_padding_width=0 -- ~/.config/hypr/scripts/nmtui-launch.sh",
+    "on-click": "~/.config/hypr/scripts/network-menu.sh",
     "tooltip": false
   },
 

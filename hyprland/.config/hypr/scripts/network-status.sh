@@ -8,7 +8,11 @@ if [ -z "$IFACE" ]; then
 fi
 
 if [ -d "/sys/class/net/$IFACE/wireless" ]; then
-  SSID=$(nmcli -t -f active,ssid dev wifi 2>/dev/null | awk -F: '/^yes/{print $2}')
+  SSID=$(iwctl station "$IFACE" show 2>/dev/null \
+    | sed 's/\x1b\[[0-9;]*[mK]//g' \
+    | grep "Connected network" \
+    | awk '{$1=$2=""; print}' \
+    | xargs)
   [ -z "$SSID" ] && SSID="WiFi"
   ICON="󰖩"
   CLASS="wifi"
