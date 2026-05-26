@@ -1,0 +1,81 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[╭─](fg:#505050)$os$directory$git_branch$git_status$fill$cmd_duration$time
+[╰─](fg:#505050)$character"""
+
+[fill]
+symbol = " "
+
+[os]
+disabled = false
+style = "fg:#888888"
+
+[os.symbols]
+Arch = " "
+Linux = " "
+
+[directory]
+style = "fg:{{ color13 }} bold"
+format = "[ $path]($style)"
+truncation_length = 4
+truncate_to_repo = true
+
+[git_branch]
+symbol = " "
+style = "fg:#888888"
+format = " [$symbol$branch]($style)"
+
+[git_status]
+style = "fg:#666666"
+format = "[$all_status$ahead_behind]($style)"
+ahead = "⇡$count"
+behind = "⇣$count"
+diverged = "⇕"
+modified = " ~$count"
+untracked = " ?$count"
+staged = " +$count"
+deleted = " ✘$count"
+
+[cmd_duration]
+min_time = 2_000
+style = "fg:#555555"
+format = " [$duration]($style)"
+
+[time]
+disabled = false
+time_format = "%H:%M"
+style = "fg:#555555"
+format = "[$time]($style)"
+
+[character]
+success_symbol = "[❯](fg:{{ color13 }} bold)"
+error_symbol = "[❯](fg:{{ color1 }} bold)"
+
+[golang]
+symbol = " "
+style = "fg:{{ color6 }}"
+format = " [$symbol$version]($style)"
+
+[python]
+symbol = " "
+style = "fg:{{ color11 }}"
+format = " [$symbol$version]($style)"
+
+[nodejs]
+symbol = " "
+style = "fg:{{ color2 }}"
+format = " [$symbol$version]($style)"
+
+[lua]
+symbol = " "
+style = "fg:{{ color4 }}"
+format = " [$symbol$version]($style)"
+
+[rust]
+symbol = " "
+style = "fg:{{ color11 }}"
+format = " [$symbol$version]($style)"
+
+[package]
+disabled = true

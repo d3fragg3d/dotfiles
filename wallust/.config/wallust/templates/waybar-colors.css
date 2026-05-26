@@ -1,0 +1,12 @@
+:root {
+  --bg:       {{ background }}eb;
+  --bg-solid: {{ background }};
+  --border:   {{ color0 }};
+  --fg:       {{ foreground }};
+  --accent:   {{ color3 }};
+  --yellow:   {{ color11 }};
+  --red:      {{ color1 }};
+  --blue:     {{ color4 }};
+  --green:    {{ color2 }};
+  --muted:    {{ color8 }};
+}

@@ -1,0 +1,16 @@
+backend = "full"
+color_space = "lch"
+palette = "harddarkcomp16"
+saturation = 40
+check_contrast = true
+fallback_generator = "complementary"
+
+[templates]
+starship = { template = 'starship.toml', target = '~/.config/starship.toml' }
+colors   = { template = 'current.sh',   target = '~/.cache/wallust/current.sh' }
+
+[hooks]
+kitty    = "$HOME/.config/hypr/scripts/wallust-kitty.sh"
+hyprland = "$HOME/.config/hypr/scripts/wallust-hyprland.sh"
+swaync   = "$HOME/.config/hypr/scripts/wallust-swaync.sh"
+fuzzel   = "$HOME/.config/hypr/scripts/wallust-fuzzel.sh"

@@ -1,0 +1,17 @@
+:root {
+  --cc-bg:               {{ background }}f7;
+  --noti-border-color:   {{ color0 }};
+  --noti-bg-darker:      {{ background }};
+  --noti-bg-hover:       {{ color8 }};
+  --noti-bg-focus:       {{ color0 }}66;
+  --noti-close-bg:       {{ color0 }}cc;
+  --noti-close-bg-hover: {{ color1 }}e6;
+  --text-color:          {{ foreground }};
+  --text-color-disabled: {{ color8 }};
+  --bg-selected:         {{ color3 }};
+  --accent:              {{ color3 }};
+  --red:                 {{ color1 }};
+  --fg:                  {{ foreground }};
+  --bg-solid:            {{ background }};
+  --border:              {{ color0 }};
+}

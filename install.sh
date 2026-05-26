@@ -41,11 +41,11 @@ sudo pacman -S --needed --noconfirm \
   eza \
   bat \
   zoxide \
+  fzf \
+  starship \
   fastfetch \
   btop \
-  networkmanager \
-  network-manager-applet \
-  nm-connection-editor \
+  iwd \
   pavucontrol \
   pipewire \
   pipewire-pulse \
@@ -85,6 +85,8 @@ fi
 echo "==> Installing AUR packages..."
 yay -S --needed --noconfirm \
   hyprswitch \
+  hyprpicker \
+  wallust \
   nordvpn-bin \
   where-is-my-sddm-theme \
   gruvbox-dark-gtk \
@@ -99,7 +101,7 @@ flatpak install -y flathub app.zen_browser.zen
 # ── Services ───────────────────────────────────────────────────────────────────
 
 echo "==> Enabling services..."
-sudo systemctl enable NetworkManager
+sudo systemctl enable iwd
 sudo systemctl enable bluetooth
 sudo systemctl enable sddm
 # sudo systemctl enable ly  # alternative: uncomment and disable sddm to use ly instead
@@ -134,10 +136,8 @@ stow -t ~ git
 stow -t ~ mimeapps
 stow -t ~ gtk
 stow -t ~ wlogout
-
-echo "==> Installing system sleep hooks..."
-sudo cp "$DOTFILES/system/systemd/system-sleep/nm-wifi-resume" /usr/lib/systemd/system-sleep/nm-wifi-resume
-sudo chmod +x /usr/lib/systemd/system-sleep/nm-wifi-resume
+stow -t ~ starship
+stow -t ~ wallust
 
 echo "==> Installing SDDM config..."
 sudo mkdir -p /etc/sddm.conf.d
@@ -152,6 +152,12 @@ sudo rm -f /etc/ly/config.ini
 sudo stow -t /etc/ly ly
 
 # ── Permissions ────────────────────────────────────────────────────────────────
+
+echo "==> Bootstrapping wallust defaults..."
+[ -f ~/.config/waybar/style.css ]      || cp "$DOTFILES/waybar/.config/waybar/style.css"         ~/.config/waybar/style.css
+[ -f ~/.config/swaync/style.css ]      || cp "$DOTFILES/swaync/.config/swaync/style.css"         ~/.config/swaync/style.css
+[ -f ~/.config/starship.toml ]         || cp "$DOTFILES/starship/.config/starship.toml"           ~/.config/starship.toml
+[ -f ~/.config/fuzzel/fuzzel.ini ]     || cp "$DOTFILES/fuzzel/.config/fuzzel/fuzzel.ini"         ~/.config/fuzzel/fuzzel.ini
 
 echo "==> Setting up script permissions..."
 chmod +x ~/.config/hypr/scripts/*.sh

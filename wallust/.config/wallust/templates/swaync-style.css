@@ -1,18 +1,16 @@
-@import "colors.css";
-
 :root {
-  --cc-bg: #0d0d0d;
-  --noti-border-color: #2a2a2a;
-  --noti-bg: 13, 13, 13;
+  --cc-bg: {{ background }};
+  --noti-border-color: {{ color0 }};
+  --noti-bg: 36, 31, 27;
   --noti-bg-alpha: 0.98;
-  --noti-bg-darker: #0d0d0d;
-  --noti-bg-hover: #2a2a2a;
-  --noti-bg-focus: #1e1e1e;
-  --noti-close-bg: #1e1e1e;
-  --noti-close-bg-hover: var(--accent);
-  --text-color: #ABA7BF;
-  --text-color-disabled: #555555;
-  --bg-selected: var(--accent);
+  --noti-bg-darker: {{ background }};
+  --noti-bg-hover: {{ color8 }};
+  --noti-bg-focus: {{ color0 }};
+  --noti-close-bg: {{ color0 }};
+  --noti-close-bg-hover: {{ color1 }};
+  --text-color: {{ foreground }};
+  --text-color-disabled: {{ color8 }};
+  --bg-selected: {{ color3 }};
   --border-radius: 10px;
   --font-size-body: 13px;
   --font-size-summary: 13px;
@@ -72,11 +70,11 @@
 }
 
 .notification-row .notification-background .notification.normal {
-  border: 1px solid #2a2a2a;
+  border: 1px solid {{ color3 }};
 }
 
 .notification-row .notification-background .notification.critical {
-  border: 1px solid #e05454;
+  border: 1px solid {{ color1 }};
 }
 
 .widget-title > label {
@@ -95,32 +93,32 @@
 }
 
 .close-button:hover {
-  color: #0d0d0d;
+  color: {{ background }};
 }
 
 .widget-title > button {
-  background: #1e1e1e;
-  border: 1px solid #2a2a2a;
-  color: #ABA7BF;
+  background: {{ color0 }};
+  border: 1px solid {{ color0 }};
+  color: {{ foreground }};
   font-size: 12px;
 }
 
 .widget-title > button:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #0d0d0d;
+  background: {{ color3 }};
+  border-color: {{ color3 }};
+  color: {{ background }};
 }
 
 .widget-dnd switch {
-  background: #1e1e1e;
+  background: {{ color0 }};
 }
 
 .widget-dnd switch:checked {
-  background: var(--accent);
+  background: {{ color3 }};
 }
 
 .widget-dnd switch slider {
-  background: #ABA7BF;
+  background: {{ foreground }};
 }
 
 .floating-notifications {

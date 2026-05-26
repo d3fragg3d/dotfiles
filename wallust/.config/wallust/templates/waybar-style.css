@@ -1,5 +1,3 @@
-@import "colors.css";
-
 * {
   font-family: JetBrainsMono Nerd Font, JetBrains Mono, sans-serif;
   font-size: 13px;
@@ -8,13 +6,13 @@
 
 window#waybar {
   background: transparent;
-  color: #ABA7BF;
+  color: {{ foreground }};
   border: none;
 }
 
 #workspaces {
-  background: #0d0d0d;
-  border: 1px solid #2a2a2a;
+  background: {{ background }};
+  border: 1px solid {{ color0 }};
   border-radius: 12px;
   margin: 4px 4px;
   padding: 0 4px;
@@ -24,34 +22,34 @@ window#waybar {
   padding: 0 12px;
   margin: 3px 2px;
   border-radius: 8px;
-  color: #ABA7BF;
+  color: {{ foreground }};
   background: transparent;
   transition: all 0.15s ease;
 }
 
 #workspaces button.active {
-  background: @accent;
-  color: #0d0d0d;
+  background: {{ color13 }};
+  color: {{ background }};
   padding: 0 14px;
 }
 
 #workspaces button:hover {
-  background: #2a2a2a;
-  color: #ABA7BF;
+  background: {{ color0 }};
+  color: {{ foreground }};
 }
 
 #clock,
 #custom-weather,
 #mpris {
-  background: #0d0d0d;
-  border: 1px solid #2a2a2a;
+  background: {{ background }};
+  border: 1px solid {{ color0 }};
   border-radius: 12px;
   margin: 4px 3px;
   padding: 0 16px;
 }
 
 #mpris.paused {
-  color: #555555;
+  color: {{ color8 }};
 }
 
 #custom-vpn,
@@ -61,8 +59,8 @@ window#waybar {
 #battery,
 #custom-notification,
 #tray {
-  background: #0d0d0d;
-  border: 1px solid #2a2a2a;
+  background: {{ background }};
+  border: 1px solid {{ color0 }};
   border-radius: 12px;
   margin: 4px 3px;
   padding: 0 12px;
@@ -83,34 +81,34 @@ window#waybar {
 #bluetooth:hover,
 #battery:hover,
 #backlight:hover {
-  border-color: @accent;
+  border-color: {{ color13 }};
 }
 
 #bluetooth.connected {
-  color: #6e85c2;
-  border-color: #6e85c2;
+  color: {{ color4 }};
+  border-color: {{ color4 }};
 }
 
 #battery.warning {
-  color: #e5a445;
-  border-color: #e5a445;
+  color: {{ color11 }};
+  border-color: {{ color11 }};
 }
 
 #battery.critical {
-  color: #e05454;
-  border-color: #e05454;
+  color: {{ color1 }};
+  border-color: {{ color1 }};
 }
 
 #custom-vpn.connected {
-  color: #7fbf7f;
-  border-color: #7fbf7f;
+  color: {{ color2 }};
+  border-color: {{ color2 }};
 }
 
 #custom-vpn.disconnected {
-  color: #ABA7BF;
+  color: {{ foreground }};
 }
 
 #custom-network.disconnected {
-  color: #e05454;
-  border-color: #e05454;
+  color: {{ color1 }};
+  border-color: {{ color1 }};
 }
