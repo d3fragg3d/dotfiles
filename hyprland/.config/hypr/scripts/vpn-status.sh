@@ -1,10 +1,20 @@
 #!/bin/bash
 
-status=$(nordvpn status | grep Status | awk '{print $2}')
+wg_up=false
+nord_up=false
 
-if [ "$status" = "Connected" ]; then
-    country=$(nordvpn status | grep Country | cut -d: -f2 | xargs)
+ip link show WG-HP &>/dev/null && wg_up=true
+
+if command -v nordvpn &>/dev/null; then
+    status=$(nordvpn status 2>/dev/null | grep -m1 Status | awk '{print $2}')
+    [ "$status" = "Connected" ] && nord_up=true
+fi
+
+if $wg_up; then
+    echo '{"text":"󰌾 WireGuard","class":"connected"}'
+elif $nord_up; then
+    country=$(nordvpn status 2>/dev/null | grep Country | cut -d: -f2 | xargs)
     echo "{\"text\":\"󰌾 $country\",\"class\":\"connected\"}"
 else
-    echo "{\"text\":\"󰌿 VPN Off\",\"class\":\"disconnected\"}"
+    echo '{"text":"󰌿 VPN Off","class":"disconnected"}'
 fi

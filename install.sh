@@ -69,7 +69,15 @@ sudo pacman -S --needed --noconfirm \
   syncthing \
   sddm \
   qt6-svg \
-  ly  # alternative login manager — sddm is preferred
+  ly \
+  tlp \
+  thermald \
+  powertop \
+  fwupd \
+  udisks2 \
+  pacman-contrib \
+  earlyoom
+# ly = alternative login manager, sddm is preferred
 
 # ── AUR packages ───────────────────────────────────────────────────────────────
 
@@ -104,6 +112,16 @@ echo "==> Enabling services..."
 sudo systemctl enable iwd
 sudo systemctl enable bluetooth
 sudo systemctl enable sddm
+sudo systemctl enable tlp
+sudo systemctl enable thermald
+sudo systemctl enable earlyoom
+sudo systemctl enable udisks2
+sudo systemctl enable fstrim.timer
+sudo systemctl disable --now power-profiles-daemon 2>/dev/null || true
+sudo pacman -Rns --noconfirm power-profiles-daemon 2>/dev/null || true
+
+echo "==> Configuring fwupd ESP location..."
+printf '[uefi_capsule]\nEspLocation=/boot\n' | sudo tee /etc/fwupd/uefi_capsule.conf > /dev/null
 # sudo systemctl enable ly  # alternative: uncomment and disable sddm to use ly instead
 systemctl --user enable pipewire.service pipewire-pulse.service wireplumber.service || true
 systemctl --user enable syncthing || true

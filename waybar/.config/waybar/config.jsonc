@@ -77,7 +77,7 @@
     "exec": "~/.config/hypr/scripts/vpn-status.sh",
     "interval": 5,
     "return-type": "json",
-    "on-click": "~/.config/hypr/scripts/vpn-toggle.sh",
+    "on-click": "~/.config/hypr/scripts/vpn-menu.sh",
     "tooltip": false
   },
 

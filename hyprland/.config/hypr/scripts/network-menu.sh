@@ -29,10 +29,11 @@ NETWORKS=$(iwctl station "$IFACE" get-networks 2>/dev/null \
 
 MENU=$(
   if [ -n "$CURRENT" ]; then
-    printf "Connected: %s\nDisconnect\n──────────\n" "$CURRENT"
+    printf "Connected: %s\nDisconnect\n" "$CURRENT"
   else
-    printf "Not connected\n──────────\n"
+    printf "Not connected\n"
   fi
+  printf "──────────\nForget Network\n──────────\n"
   echo "$NETWORKS"
 )
 
@@ -42,6 +43,18 @@ CHOICE=$(echo "$MENU" | fuzzel --dmenu --prompt "  WiFi   " --width 40)
 case "$CHOICE" in
   "Disconnect")
     iwctl station "$IFACE" disconnect
+    ;;
+  "Forget Network")
+    KNOWN=$(iwctl known-networks list 2>/dev/null \
+      | sed 's/\x1b\[[0-9;]*[mK]//g' \
+      | tail -n +5 | cut -c3-36 | sed 's/[[:space:]]*$//' | grep .)
+    [ -z "$KNOWN" ] && exit 0
+
+    SSID=$(echo "$KNOWN" | fuzzel --dmenu --prompt "  Forget   " --width 40)
+    [ -z "$SSID" ] && exit 0
+
+    CONFIRM=$(printf "No\nYes" | fuzzel --dmenu --prompt "Forget $SSID?   " --width 40)
+    [ "$CONFIRM" = "Yes" ] && iwctl known-networks "$SSID" forget
     ;;
   "Connected: "*|"Not connected"|"──────────")
     ;;
