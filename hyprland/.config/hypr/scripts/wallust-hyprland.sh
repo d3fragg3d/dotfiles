@@ -12,6 +12,11 @@ accent=$(
     done | sort -rn | head -1 | awk '{print $2}'
 )
 
+printf 'return {\n    accent = "rgb(%s)",\n    border_inactive = "rgb(252525)",\n}\n' "$accent" \
+    > ~/.config/hypr/colors.lua
+
+# TODO: drop this once hyprland.conf is removed — kept only so the old
+# hyprlang config stays in sync with wallust while both configs coexist.
 printf '$accent          = rgb(%s)\n$border_inactive = rgb(252525)\n' "$accent" \
     > ~/.config/hypr/colors.conf
 
