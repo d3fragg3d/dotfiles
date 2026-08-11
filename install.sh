@@ -56,6 +56,7 @@ sudo pacman -S --needed --noconfirm \
   noto-fonts \
   noto-fonts-emoji \
   stow \
+  xdg-user-dirs \
   git \
   neovim \
   ripgrep \
@@ -130,6 +131,10 @@ systemctl --user enable syncthing || true
 # ── Directories ────────────────────────────────────────────────────────────────
 
 echo "==> Creating directories..."
+# Flatpak apps (Zen, etc.) are sandboxed to only the XDG user dirs (e.g.
+# ~/Downloads) — without this, downloads silently land in the flatpak's
+# private cache instead of anywhere visible.
+xdg-user-dirs-update
 mkdir -p ~/.config
 mkdir -p ~/Pictures/Screenshots
 mkdir -p ~/syncthing/obsidian/scratch
