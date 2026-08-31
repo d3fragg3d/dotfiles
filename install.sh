@@ -93,7 +93,6 @@ fi
 
 echo "==> Installing AUR packages..."
 yay -S --needed --noconfirm \
-  hyprswitch \
   hyprpicker \
   wallust-git \
   nordvpn-bin \

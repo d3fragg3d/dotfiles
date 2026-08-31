@@ -36,14 +36,14 @@ local browser      = "zen-browser"
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("~/.config/hypr/scripts/wallpaper.sh")
-    hl.exec_cmd("waybar")
+    hl.exec_cmd("~/.config/hypr/scripts/waybar-launch.sh")
+    hl.exec_cmd("~/.config/hypr/scripts/workspace-watch.py")
     hl.exec_cmd("swaync")
     hl.exec_cmd("/usr/lib/hyprpolkitagent/hyprpolkitagent")
     hl.exec_cmd("hypridle")
     hl.exec_cmd("wl-paste --type text --watch cliphist store")
     hl.exec_cmd("wl-paste --type image --watch cliphist store")
     hl.exec_cmd("bash -c 'while true; do ~/.config/hypr/scripts/battery-check.sh; sleep 120; done'")
-    hl.exec_cmd("hyprswitch init --show-title &")
     hl.exec_cmd("swayosd-server")
     hl.exec_cmd("~/.config/hypr/scripts/syncthing-notify.sh")
 end)
@@ -217,8 +217,8 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true, desc 
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"), { desc = "Open clipboard history" })
 
 -- Window switcher
-hl.bind("ALT + Tab", hl.dsp.exec_cmd("hyprswitch gui --mod-key alt --key tab --close mod-key-release"), { desc = "Switch windows (alt-tab)" })
-hl.bind("ALT + SHIFT + Tab", hl.dsp.exec_cmd("hyprswitch gui --mod-key alt --key tab --close mod-key-release --reverse-key=shift"), { desc = "Switch windows backwards" })
+hl.bind("ALT + Tab", hl.dsp.window.cycle_next(), { desc = "Switch windows (alt-tab)" })
+hl.bind("ALT + SHIFT + Tab", hl.dsp.window.cycle_next({ previous = true }), { desc = "Switch windows backwards" })
 
 -- Screenshot
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot" "Copied to clipboard"]]), { desc = "Screenshot region to clipboard" })

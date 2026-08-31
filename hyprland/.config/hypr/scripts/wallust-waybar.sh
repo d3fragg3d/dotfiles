@@ -14,4 +14,4 @@ accent=$(
 
 printf '@define-color accent %s;\n' "$accent" > ~/.config/waybar/colors.css
 
-pkill -SIGUSR2 waybar 2>/dev/null || true
+pkill -x -SIGUSR2 waybar 2>/dev/null || true

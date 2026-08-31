@@ -16,7 +16,7 @@ Arch = " "
 Linux = " "
 
 [directory]
-style = "fg:#3357FF bold"
+style = "fg:#21A764 bold"
 format = "[ $path]($style)"
 truncation_length = 4
 truncate_to_repo = true
@@ -49,32 +49,32 @@ style = "fg:#555555"
 format = "[$time]($style)"
 
 [character]
-success_symbol = "[❯](fg:#3357FF bold)"
-error_symbol = "[❯](fg:#252D45 bold)"
+success_symbol = "[❯](fg:#21A764 bold)"
+error_symbol = "[❯](fg:#394926 bold)"
 
 [golang]
 symbol = " "
-style = "fg:#466ABB"
+style = "fg:#1DAF7D"
 format = " [$symbol$version]($style)"
 
 [python]
 symbol = " "
-style = "fg:#2B6FB5"
+style = "fg:#2D894F"
 format = " [$symbol$version]($style)"
 
 [nodejs]
 symbol = " "
-style = "fg:#2A4D6A"
+style = "fg:#335C27"
 format = " [$symbol$version]($style)"
 
 [lua]
 symbol = " "
-style = "fg:#2B6AB7"
+style = "fg:#4E8426"
 format = " [$symbol$version]($style)"
 
 [rust]
 symbol = " "
-style = "fg:#2B6FB5"
+style = "fg:#2D894F"
 format = " [$symbol$version]($style)"
 
 [package]

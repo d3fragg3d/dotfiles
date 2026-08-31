@@ -1,0 +1,5 @@
+$include /etc/inputrc
+
+# Up/Down cycle through history entries matching what's already typed
+"\e[A": history-search-backward
+"\e[B": history-search-forward

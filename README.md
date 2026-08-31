@@ -51,16 +51,6 @@ stow -D -t ~ hyprland
 
 ## Hyprland
 
-### Plugins
-
-#### hyprswitch (window switcher)
-
-```bash
-yay -S hyprswitch
-```
-
-Bind: `Alt + Tab` / `Alt + Shift + Tab` — window switcher with previews.
-
 ### Key bindings
 
 | Bind | Action |
@@ -77,7 +67,7 @@ Bind: `Alt + Tab` / `Alt + Shift + Tab` — window switcher with previews.
 | `Super + Shift + L` | Lock screen |
 | `Super + Shift + N` | Toggle night mode |
 | `Super + /` | Toggle scratchpad terminal |
-| `Alt + Tab` | Window switcher |
+| `Alt + Tab` / `Alt + Shift + Tab` | Cycle window focus forward/backward |
 
 ### Scratchpad terminal
 
@@ -285,6 +275,8 @@ Aliases in `.bashrc` replace standard commands transparently:
 | `zoxide` | `cd` | Learns frequently visited dirs |
 
 `fastfetch` runs on every new terminal open. `btop` is available as a full system monitor — just run `btop`.
+
+`.inputrc` (stowed from `bash/`) binds Up/Down to `history-search-backward`/`-forward`, so typing a partial command (e.g. `ssh `) and pressing Up cycles only matching history entries instead of the full list.
 
 ---
 

@@ -1,28 +1,59 @@
 {
-  "layer": "bottom",
+  "layer": "top",
   "position": "top",
   "exclusive": true,
   "margin": "8 8 0 8",
   "height": 36,
   "spacing": 4,
 
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["group/workspaces"],
   "modules-center": ["clock", "mpris"],
   "modules-right": ["custom/vpn", "custom/network", "wireplumber", "bluetooth", "battery", "custom/notification", "tray"],
 
-  "hyprland/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "1": "󰖟 Web",
-      "2": "󰆍 Term",
-      "3": "󰒋 Vim",
-      "4": "󰎆 Media",
-      "5": "󰾍 Misc"
-    },
-    "persistent-workspaces": {
-      "*": 5
-    },
-    "on-click": "activate"
+  "group/workspaces": {
+    "orientation": "horizontal",
+    "modules": ["custom/ws1", "custom/ws2", "custom/ws3", "custom/ws4", "custom/ws5"]
+  },
+
+  "custom/ws1": {
+    "exec": "~/.config/hypr/scripts/workspace-button.sh 1 '󰖟 Web'",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({workspace=1})'",
+    "return-type": "json",
+    "interval": "once",
+    "signal": 8,
+    "tooltip": false
+  },
+  "custom/ws2": {
+    "exec": "~/.config/hypr/scripts/workspace-button.sh 2 '󰆍 Term'",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({workspace=2})'",
+    "return-type": "json",
+    "interval": "once",
+    "signal": 8,
+    "tooltip": false
+  },
+  "custom/ws3": {
+    "exec": "~/.config/hypr/scripts/workspace-button.sh 3 '󰒋 Vim'",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({workspace=3})'",
+    "return-type": "json",
+    "interval": "once",
+    "signal": 8,
+    "tooltip": false
+  },
+  "custom/ws4": {
+    "exec": "~/.config/hypr/scripts/workspace-button.sh 4 '󰎆 Media'",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({workspace=4})'",
+    "return-type": "json",
+    "interval": "once",
+    "signal": 8,
+    "tooltip": false
+  },
+  "custom/ws5": {
+    "exec": "~/.config/hypr/scripts/workspace-button.sh 5 '󰾍 Misc'",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({workspace=5})'",
+    "return-type": "json",
+    "interval": "once",
+    "signal": 8,
+    "tooltip": false
   },
 
   "clock": {
