@@ -36,7 +36,6 @@ local browser      = "zen-browser"
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("~/.config/hypr/scripts/wallpaper.sh")
-    hl.exec_cmd("~/.config/hypr/scripts/waybar-launch.sh")
     hl.exec_cmd("~/.config/hypr/scripts/workspace-watch.py")
     hl.exec_cmd("swaync")
     hl.exec_cmd("/usr/lib/hyprpolkitagent/hyprpolkitagent")

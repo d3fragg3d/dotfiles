@@ -172,6 +172,12 @@ stow -t ~ wlogout
 stow -t ~ starship
 stow -t ~ wallust
 
+# waybar.service overrides the vendor unit shipped by the waybar package:
+# start-hyprland (unlike uwsm) never activates graphical-session.target, so
+# the vendor unit's dependency on it would leave the service unstartable.
+systemctl --user daemon-reload
+systemctl --user enable --now waybar.service || true
+
 echo "==> Installing SDDM config..."
 sudo mkdir -p /etc/sddm.conf.d
 sudo cp "$DOTFILES/sddm/sddm.conf" /etc/sddm.conf.d/hyprland.conf

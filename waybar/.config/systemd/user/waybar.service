@@ -1,0 +1,15 @@
+[Unit]
+Description=Highly customizable Wayland bar for Sway and Wlroots based compositors
+Documentation=https://github.com/Alexays/Waybar/wiki/
+# Full override of the vendor unit: this session (start-hyprland, not uwsm)
+# never activates graphical-session.target, so the vendor unit's
+# PartOf/After/Requisite on it would make the service unstartable here.
+
+[Service]
+ExecStart=/usr/bin/waybar
+ExecReload=kill -SIGUSR2 $MAINPID
+Restart=on-failure
+RestartSec=1
+
+[Install]
+WantedBy=default.target
