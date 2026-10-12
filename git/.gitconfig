@@ -1,3 +1,5 @@
 [user]
 	email = chris@k1ng.sh
 	name = Chris King
+[core]
+	editor = nvim
