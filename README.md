@@ -47,6 +47,24 @@ To remove:
 stow -D -t ~ hyprland
 ```
 
+### Boot safety (new install)
+
+After `install.sh`, set up fallback kernels, btrfs snapshots and the GRUB theme.
+Run one phase at a time and **reboot after each** before running the next:
+
+```bash
+sudo bash system/boot-safety.sh phase1   # linux-lts + UKI fallback; reboot
+sudo bash system/boot-safety.sh phase2   # /boot onto btrfs, ESP at /efi; reboot
+sudo bash system/boot-safety.sh phase3   # snapper + snapshots in GRUB; reboot
+sudo bash system/boot-safety.sh phase4   # tidy GRUB menu + theme; reboot
+```
+
+Each phase explains what it will do and asks first, prints what to check after the
+reboot, and refuses to run out of order. Assumes an archinstall btrfs + GRUB install
+with Secure Boot off.
+
+When boot breaks, see [docs/boot-recovery.md](docs/boot-recovery.md).
+
 ---
 
 ## Hyprland
