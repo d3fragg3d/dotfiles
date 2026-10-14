@@ -166,9 +166,17 @@ fullscale=yellow,black
 '
 
 # Better CLI tools
-alias ls='eza --icons'
-alias ll='eza -la --icons --git'
-alias la='eza -a --icons'
+# lsd takes the same flags as ls (ls -lathr works), plus icons and git status.
+# Falls back to plain coloured ls if lsd isn't installed.
+if command -v lsd >/dev/null; then
+  alias ls="lsd --date '+%b %e %H:%M'"
+  alias ll='ls -la --git'
+  alias lt='ls --tree --depth 2'
+else
+  alias ls='ls --color=auto'
+  alias ll='ls -la'
+fi
+alias la='ls -a'
 alias cat='bat --paging=never'
 
 eval "$(zoxide init bash)"

@@ -38,7 +38,7 @@ sudo pacman -S --needed --noconfirm \
   bluez-utils \
   blueman \
   swayosd \
-  eza \
+  lsd \
   bat \
   zoxide \
   fzf \

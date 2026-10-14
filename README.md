@@ -288,7 +288,7 @@ Aliases in `.bashrc` replace standard commands transparently:
 
 | Command | Replaces | Notes |
 |---|---|---|
-| `eza` | `ls` | Icons, git status via `ll` |
+| `lsd` | `ls` | Same flags as `ls` (`ls -lathr` works), plus icons; `ll` adds git status, `lt` is a tree |
 | `bat` | `cat` | Syntax highlighting, no paging |
 | `zoxide` | `cd` | Learns frequently visited dirs |
 
